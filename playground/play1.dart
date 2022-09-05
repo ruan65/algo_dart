@@ -1,3 +1,5 @@
+import 'dart:async';
+
 class A {}
 
 class B {}
@@ -5,13 +7,39 @@ class B {}
 void main() {
   A a = A();
   B b = B();
-  A? aNull = null;
-  B? bNull = null;
+  print(a == b);
+  print(a.hashCode);
+  print(a.runtimeType);
+}
 
-  print(
-      '${a.hashCode}\n${b.runtimeType}\n${a.toString()}\n${a == b}\n${Object.hash(a, b)}');
+// void main() {
+//   // prints every second arg to console
+//   printEverySecond();
+//   var result = fibonacci(10);
+//   print(result);
+// }
 
-  print(aNull.hashCode);
-  print(bNull.hashCode);
-  print(null is Null);
+int fibonacci(int n) {
+  if (n == 0 || n == 1) return n;
+  return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+printEverySecond() async {
+  while (true) {
+    print('sec');
+    await Future.delayed(Duration(seconds: 1));
+  }
+}
+
+void main() async {
+  final timer = Timer.periodic(Duration(seconds: 1), (_) {
+    print(1);
+  });
+
+  var result = fibonacci(20);
+  print(result);
+
+  await Future.delayed(Duration(milliseconds: 1001));
+
+  timer.cancel();
 }
