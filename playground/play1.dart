@@ -5,11 +5,14 @@ class A {}
 class B {}
 
 void main() {
-  A a = A();
-  B b = B();
-  print(a == b);
-  print(a.hashCode);
-  print(a.runtimeType);
+  final listOfStrings = List<String>.generate(10, (i) => 'a' * i);
+  print(listOfStrings);
+  print(('a' * 0).runtimeType);
+  // A a = A();
+  // B b = B();
+  // print(a == b);
+  // print(a.hashCode);
+  // print(a.runtimeType);
 }
 
 // void main() {
@@ -31,7 +34,7 @@ printEverySecond() async {
   }
 }
 
-void main() async {
+void main_() async {
   final timer = Timer.periodic(Duration(seconds: 1), (_) {
     print(1);
   });
