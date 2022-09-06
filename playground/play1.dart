@@ -1,8 +1,18 @@
 import 'dart:async';
 
-class A {}
+class A {
+  final String name;
 
-class B {}
+  A(this.name);
+
+  @override
+  int get hashCode => Object.hashAll([name]);
+
+  @override
+  bool operator ==(Object other) {
+    return hashCode == other.hashCode;
+  }
+}
 
 void main() {
   final listOfStrings = List<String>.generate(10, (i) => 'a' * i);
@@ -13,6 +23,19 @@ void main() {
   // print(a == b);
   // print(a.hashCode);
   // print(a.runtimeType);
+  A a1 = A('123');
+  A a2 = A('123');
+  print(a1 == a2);
+  print(a1.hashCode);
+  print(a2.hashCode);
+  print(a1.runtimeType);
+}
+
+class A1 {
+  @override
+  bool operator ==(Object other) {
+    return other.runtimeType == A;
+  }
 }
 
 // void main() {
@@ -46,3 +69,15 @@ void main_() async {
 
   timer.cancel();
 }
+// void main() async {
+//   final timer = Timer.periodic(Duration(seconds: 1), (_) {
+//     print(1);
+//   });
+//
+//   var result = fibonacci(20);
+//   print(result);
+//
+//   await Future.delayed(Duration(milliseconds: 1001));
+//
+//   timer.cancel();
+// }

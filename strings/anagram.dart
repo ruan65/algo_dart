@@ -35,27 +35,26 @@
 //   return true;
 // }
 
-bool isAnagram(String a, String b) {
-  if (a.length != b.length) return false;
-
-  final al = a.split('');
-  final bl = b.split('');
-  for (var l in a.split('')) {
-    if (bl.contains(l)) {
-      al.remove(l);
-      bl.remove(l);
-    }
-  }
-  return al.isEmpty && bl.isEmpty;
-}
-
 // bool isAnagram(String a, String b) {
-//   final as = a.split('');
-//   final bs = b.split('');
-//   as.sort();
-//   bs.sort();
-//   return as.toString() == bs.toString();
+//   if (a.length != b.length) return false;
+//
+//   final al = a.split('');
+//   final bl = b.split('');
+//   for (var l in a.split('')) {
+//     if (al.remove(l)) {
+//       bl.remove(l);
+//     }
+//   }
+//   return al.isEmpty && bl.isEmpty;
 // }
+
+bool isAnagram(String a, String b) {
+  final as = a.split('');
+  final bs = b.split('');
+  as.sort();
+  bs.sort();
+  return as.toString() == bs.toString();
+}
 
 void main() {
   print(isAnagram('', ''));
