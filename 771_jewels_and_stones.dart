@@ -35,11 +35,26 @@
 //   return res;
 // }
 
-int numJewelsInStones(String jewels, String stones) {
-  for (var ch in List.from(stones.split(''))) {
-    if (!jewels.contains(ch)) {
-      stones = stones.replaceAll(ch, '');
-    }
-  }
-  return stones.length;
+// int numJewelsInStones(String jewels, String stones) {
+//   for (var ch in List.from(stones.split(''))) {
+//     if (!jewels.contains(ch)) {
+//       stones = stones.replaceAll(ch, '');
+//     }
+//   }
+//   return stones.length;
+// }
+
+// int numJewelsInStones(String jewels, String stones) {
+//   var res = 0;
+//   for (String ch in List.from(jewels.split(''))) {
+//     res += ch.allMatches(stones).length;
+//   }
+//   return res;
+// }
+
+int numJewelsInStones(String jewels, String stones) =>
+    jewels.split('').fold(0, (sum, e) => sum + e.allMatches(stones).length);
+
+void main() {
+  print('a'.allMatches('abca').length);
 }
