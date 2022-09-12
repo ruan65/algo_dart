@@ -48,5 +48,5 @@ void main() {
   final nums = [-1, 0, 1, 2, -1, -4];
   print(threeSum(nums));
   print(IntTriple(1, 2, 3) == IntTriple(3, 2, 1));
-  print({1, 1, 3} == {3, 2, 1});
+  print({1, 2, 3} == {3, 2, 1});
 }
