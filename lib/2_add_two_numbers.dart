@@ -26,7 +26,7 @@ ListNode _toLinkedList(BigInt n) {
   ListNode head = ListNode((n % BigInt.from(10)).toInt());
   n = n ~/ BigInt.from(10);
   ListNode currentNode = head;
-  while (n > BigInt.from(10)) {
+  while (n > BigInt.from(0)) {
     currentNode.next = ListNode((n % BigInt.from(10)).toInt());
     currentNode = currentNode.next!;
     n = n ~/ BigInt.from(10);
